@@ -23,6 +23,7 @@ export interface IUserService {
 })
 export class UserService implements IUserService {
   baseUri = environment.apiBaseUri;
+  console.log("$$$$$$$$$$$$$$$$$$$ baseUri" + baseUri);
 
   constructor(private http: HttpClient) {}
 
@@ -48,7 +49,7 @@ export class UserService implements IUserService {
     }
 
     const uri = `${this.baseUri}${environment.endpoint_user_get}`;
-
+    console.log("$$$$$$$$$$$$$$$$$$$ uri from getUsersList" + uri);
     return this.http.get<ApiResponse<User[]>>(uri, { params: params });
   }
 
