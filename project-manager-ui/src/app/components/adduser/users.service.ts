@@ -23,7 +23,7 @@ export interface IUserService {
 })
 export class UserService implements IUserService {
   baseUri = environment.apiBaseUri;
-  console.log("$$$$$$$$$$$$$$$$$$$ baseUri" + baseUri);
+  
 
   constructor(private http: HttpClient) {}
 
