@@ -1,22 +1,21 @@
-FROM node:11.6.0-alpine AS builder
+### STAGE 1: Build ###
+FROM node:10
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-
+# Preparing working environment.
+RUN mkdir -p /home/node/app/node_modules
 WORKDIR /home/node/app
 
-#USER node
-	
+# Installing dependencies.
 COPY package.json /home/node/app/package.json
 
+RUN npm install --cache /tmp/empty-cache
 RUN npm install
-
 RUN npm install -g @angular/cli
 
-# add app
+# Add app
 COPY . /home/node/app
-
-COPY --chown=node:node . .
 
 EXPOSE 4200
 
-CMD [ "ng", "serve" ]
+CMD ["ng","serve","--host","0.0.0.0","--port","4200","--public","ipAddress"]
+
