@@ -19,7 +19,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(DBconfig.ConnectionString).then(
   () => {
     console.log("Project Manager Cloud DB is Connected");
-    console.log("Testing CI CD");
+    console.log("Testing CI CD for the Demo on May 14, 2019");
   },
   err => {
     console.log("Can not connect to the Project Manager DB" + err);
